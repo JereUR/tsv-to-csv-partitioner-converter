@@ -1,7 +1,7 @@
 const fs = require('fs')
 const Papa = require('papaparse')
 
-const filePath = './datasets-files/data.tsv'
+const filePath = './data-file/data.tsv'
 const chunkSize = 100 * 1024 * 1024 // 100 MB en bytes
 
 let readStream = fs.createReadStream(filePath, {
