@@ -2,7 +2,7 @@ const fs = require('fs')
 const Papa = require('papaparse')
 
 const filePath = './data-file/data.tsv'
-const chunkSize = 100 * 1024 * 1024 // 100 MB en bytes
+const chunkSize = 90 * 1024 * 1024
 
 let readStream = fs.createReadStream(filePath, {
   encoding: 'utf8',
@@ -20,7 +20,6 @@ readStream.on('data', (chunk) => {
     } else {
       console.log(`Archivo ${chunkFilePath} creado exitosamente.`)
 
-      // Convertir el chunk a CSV aquí, si lo deseas
       Papa.parse(chunk, {
         delimiter: '\t',
         complete: (result) => {
